@@ -1,7 +1,7 @@
 #lang typed/racket
 
-(require typed/net/url (except-in racket/control abort))
-(require/typed racket/control [abort (Any -> Nothing)])
+(require typed/net/url)
+(require/typed racket/control [abort (Any * -> Nothing)])
 (require/typed racket/base
                [call-with-continuation-prompt
                 (All (A) (-> A) -> A)])
@@ -120,7 +120,7 @@
   `(html (body ,@(for/list: : (Listof String) ([i : Integer (in-range n)])
                    " hello"))))
 
-(: send/suspend : (String -> XExpr) -> XExpr)
+(: send/suspend : (String -> XExpr) -> Query)
 (define (send/suspend mk-page)
   (let/cc: k : Query
     (define tag (format "k~a" (current-inexact-milliseconds)))

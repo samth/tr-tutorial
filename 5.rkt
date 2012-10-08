@@ -1,6 +1,6 @@
 #lang typed/racket  ; A picture
 (require/typed 2htdp/image
-               [opaque Image image?]
+               [#:opaque Image image?]
                [triangle (Real Symbol Symbol -> Image)]               
                [freeze (Image -> Image)]
                [above (Image Image -> Image)]

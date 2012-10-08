@@ -1,6 +1,6 @@
 #lang typed/racket ; Simple web scraper
 (require/typed net/url
-               [opaque Url url?]
+               [#:opaque Url url?]
                [get-pure-port (Url -> Input-Port)]
                [string->url (String -> Url)])
 

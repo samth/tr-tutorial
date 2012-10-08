@@ -2,7 +2,7 @@
 ; draw a graph of cos
 ; and deriv^3(cos)
 (require/typed plot/utils
-               [opaque Renderer2D renderer2d?])
+               [#:opaque Renderer2D renderer2d?])
 (require/typed plot
                [function ((Real -> Real) Integer Integer [#:color Symbol] -> Renderer2D)]
                [plot ((Listof Renderer2D) -> Any)]) 
