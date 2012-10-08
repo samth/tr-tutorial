@@ -149,3 +149,30 @@
 (hash-set! dispatch-table "sum" sum)
 (hash-set! dispatch-table "one" one)
 (hash-set! dispatch-table "two" two)
+
+
+;; Helper to run the number-getting page via `send/suspend':
+(: get-number : String -> Number)
+(define (get-number label)
+  (define query
+    ;; Generate a URL for the current computation:
+    (send/suspend
+     ;; Receive the computation-as-URL here:
+     (lambda (k-url)
+       ;; Generate the query-page result for this connection.
+       ;; Send the query result to the saved-computation URL:
+       (build-request-page label k-url ""))))
+  ;; We arrive here later, in a new connection
+  (assert (string->number (assert (cdr (assert (assq 'number query)))))))
+
+;; ----------------------------------------
+
+;; New direct-style servlet:
+
+(: sum2 : Query -> XExpr)
+(define (sum2 query)
+  (define m (get-number "First number:"))
+  (define n (get-number "Second number:"))
+  `(html (body "The sum is " ,(number->string (+ m n)))))
+
+(hash-set! dispatch-table "sum2" sum2)
