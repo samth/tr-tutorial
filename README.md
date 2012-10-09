@@ -8,6 +8,7 @@
 #lang typed/racket
 
 (module+ (displayln "Hello World"))
+```
 
 ## Interoperating with untyped Racket
 
