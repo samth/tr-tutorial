@@ -4,7 +4,7 @@
 
 ### Your first Typed Racket program
 
-```Racket
+```racket
 #lang typed/racket
 
 (module+ main (displayln "Hello World"))
