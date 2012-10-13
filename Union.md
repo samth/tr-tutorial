@@ -13,3 +13,7 @@ How do you report failure in Racket?
 (cond [(number? v) (* v 2)]
       [else (error 'whoops)])
 ```
+
+This is called _occurrence typing_.  The basic idea is that predicates
+like `number?` change how the type system treats `v` on the right hand
+side of the `cond`.
