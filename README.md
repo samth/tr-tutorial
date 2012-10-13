@@ -4,12 +4,27 @@
 
 ### Your first Typed Racket program
 
-```racket
+```
 #lang typed/racket
 
 (module+ main (displayln "Hello World"))
 ```
 
-## Interoperating with untyped Racket
+### Intro
 
-## Advanced Features
+### Next
+
+### Union
+
+### Polymorphism
+
+### Advanced
+
+## Porting small programs
+
+Take the programs on the Racket website (collected in the `website`
+directory) and port them to Typed Racket.
+
+## A Bigger Step
+
+Working through the *More: Systems programming in Racket* tutorial
