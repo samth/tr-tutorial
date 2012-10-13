@@ -4,10 +4,10 @@
 
 ### Your first Typed Racket program
 
-```
+```Racket
 #lang typed/racket
 
-(module+ (displayln "Hello World"))
+(module+ main (displayln "Hello World"))
 ```
 
 ## Interoperating with untyped Racket
