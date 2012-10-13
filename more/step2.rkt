@@ -1,26 +1,26 @@
 #lang typed/racket
 
-(: serve : Integer -> Any)
+(: serve : Integer -> (-> Void))
 (define (serve port-no)
   (define listener (tcp-listen port-no 5 #t))
   (: loop : -> Any)
   (define (loop)
     (accept-and-handle listener)
-      (loop))
+    (loop))		
   (: t : Thread)
   (define t (thread loop))
   (lambda ()
     (kill-thread t)
     (tcp-close listener)))
 
-(: accept-and-handle : TCP-Listener -> Any)
+(: accept-and-handle : TCP-Listener -> Void)
 (define (accept-and-handle listener)
   (define-values (in out) (tcp-accept listener))
   (handle in out)
   (close-input-port in)
   (close-output-port out))
 
-(: handle : Input-Port Output-Port -> Any)
+(: handle : Input-Port Output-Port -> Void)
 (define (handle in out)
   ;; Discard the request header (up to blank line):
   (regexp-match #rx"(\r\n|^)\r\n" in)
