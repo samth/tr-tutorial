@@ -1,12 +1,10 @@
 #lang typed/racket
 
 (require typed/net/url)
-(require/typed racket/control [abort (Any * -> Nothing)])
-(require/typed racket/base
-               [call-with-continuation-prompt
-                (All (A) (-> A) -> A)])
 (define-type XExpr Any)
 (require/typed xml [xexpr->string (XExpr -> String)])
+
+(define abort (λ (v) (abort-current-continuation (default-continuation-prompt-tag) (λ () v))))
 
 (: serve : Integer -> Any)
 (: accept-and-handle : TCP-Listener -> Any)

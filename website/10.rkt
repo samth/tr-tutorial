@@ -1,4 +1,4 @@
-#lang typed/racket ; Sending email from racket
+#lang racket ; Sending email from racket
 (require net/sendmail)
 (sleep (* (- (* 60 4) 15) 60)) ; 4h - 15m
 (send-mail-message

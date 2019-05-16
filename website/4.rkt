@@ -1,4 +1,4 @@
-#lang racket
+#lang typed/racket
 ;; Finds Racket sources in all subdirs
 (for ([path (in-directory)])
   (when (regexp-match? #rx"[.]rkt$" path)

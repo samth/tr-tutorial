@@ -14,6 +14,5 @@
          [rx #rx"(?<=<h3 class=\"r\">).*?(?=</h3>)"])
     (regexp-match* rx (get-pure-port (string->url u)))))
 
-(module+ main
-  (pretty-print
-   (let-me-google-that-for-you "Racket")))
+(pretty-print
+ (let-me-google-that-for-you "Racket"))
